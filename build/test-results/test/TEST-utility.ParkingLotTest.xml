@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="utility.ParkingLotTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-03-24T14:46:51" hostname="DEEKSHAREDDY" time="0.035">
+<testsuite name="utility.ParkingLotTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-03-24T15:08:06" hostname="DEEKSHAREDDY" time="0.081">
   <properties/>
-  <testcase name="testIsFalseIfCarIsAlreadyParked()" classname="utility.ParkingLotTest" time="0.028"/>
-  <testcase name="testIsTrueIfDriverCanParkACar()" classname="utility.ParkingLotTest" time="0.005"/>
+  <testcase name="testIsFalseIfCarIsAlreadyParked()" classname="utility.ParkingLotTest" time="0.052"/>
+  <testcase name="testIsTrueIfDriverCanParkACar()" classname="utility.ParkingLotTest" time="0.006"/>
+  <testcase name="testThrowsExceptionIfParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

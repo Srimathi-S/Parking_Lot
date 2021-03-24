@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Car {
     private final String registrationNumber;
+
     public Car(String registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
