@@ -2,7 +2,9 @@ utility/NoCapacityException.java
  utility.NoCapacityException
 utility/Car.java
  utility.Car
-utility/ParkingLot.java
- utility.ParkingLot
 utility/AlreadyParkedException.java
  utility.AlreadyParkedException
+utility/NotParkedException.java
+ utility.NotParkedException
+utility/ParkingLot.java
+ utility.ParkingLot

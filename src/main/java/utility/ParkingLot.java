@@ -20,4 +20,12 @@ public class ParkingLot {
         parkedCars.add(car);
         availableCapacity -= 1;
     }
+
+    public Car unPark(Car car) throws NotParkedException {
+        if (parkedCars.remove(car)) {
+            availableCapacity += 1;
+            return car;
+        } else
+            throw new NotParkedException();
+    }
 }
