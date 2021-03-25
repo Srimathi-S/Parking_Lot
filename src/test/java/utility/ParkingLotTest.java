@@ -14,29 +14,29 @@ public class ParkingLotTest {
     }
 
     @Test
-    void testIsTrueIfDriverCanParkACar() throws NoCapacityException {
-        Car car = new Car("TN12GH3698");
+    void testIfDriverCanParkACar(){
+        Car car = new Car();
 
-        assertTrue(parkingLot.park(car));
+        assertDoesNotThrow( ()->parkingLot.park(car));
     }
 
     @Test
-    void testIsFalseIfCarIsAlreadyParked() throws NoCapacityException {
-        Car car1 = new Car("TN12GH3678");
-        Car car2 = new Car("TN12GH3678");
-        parkingLot.park(car1);
+    void testIsFalseIfCarIsAlreadyParked() throws NoCapacityException, AlreadyParkedException {
+        Car car = new Car();
+        parkingLot.park(car);
 
-        assertFalse(parkingLot.park(car2));
+        assertThrows(AlreadyParkedException.class,()->parkingLot.park(car));
     }
 
     @Test
-    void testThrowsExceptionIfParkingLotIsFull() throws NoCapacityException {
+    void testThrowsExceptionIfParkingLotIsFull() throws NoCapacityException, AlreadyParkedException {
         ParkingLot parkingLot = new ParkingLot(1);
-        Car car1 = new Car("TS12JS5726");
-        Car car2 = new Car("TS62FH2725");
+        Car car1 = new Car();
+        Car car2 = new Car();
         parkingLot.park(car1);
 
         assertThrows(NoCapacityException.class, () -> parkingLot.park(car2));
 
     }
+
 }

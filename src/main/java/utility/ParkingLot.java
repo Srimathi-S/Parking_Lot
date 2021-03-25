@@ -12,13 +12,12 @@ public class ParkingLot {
         this.availableCapacity = capacity;
     }
 
-    public boolean park(Car car) throws NoCapacityException {
+    public void park(Car car) throws NoCapacityException, AlreadyParkedException {
         if (availableCapacity == 0)
             throw new NoCapacityException();
         if (parkedCars.contains(car))
-            return false;
+            throw new AlreadyParkedException();
         parkedCars.add(car);
         availableCapacity -= 1;
-        return true;
     }
 }
