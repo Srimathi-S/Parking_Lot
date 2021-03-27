@@ -3,13 +3,13 @@ package utility;
 import java.util.HashSet;
 
 public class ParkingLot {
-    private final int capacity;
     private int availableCapacity;
     HashSet<Car> parkedCars = new HashSet<>();
+    Owner owner;
 
-    public ParkingLot(int capacity) {
-        this.capacity = capacity;
+    public ParkingLot(int capacity, Owner owner) {
         this.availableCapacity = capacity;
+        this.owner = owner;
     }
 
     public void park(Car car) throws NoCapacityException, AlreadyParkedException {
@@ -19,6 +19,8 @@ public class ParkingLot {
             throw new AlreadyParkedException();
         parkedCars.add(car);
         availableCapacity -= 1;
+        if (availableCapacity == 0)
+            owner.notifyIsFull();
     }
 
     public Car unPark(Car car) throws NotParkedException {
