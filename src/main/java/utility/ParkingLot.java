@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ParkingLot {
     private final int capacity;
+    private boolean isFull;
     HashSet<Car> parkedCars = new HashSet<>();
     List<Worker> workerList = new ArrayList<>();
 
@@ -28,13 +29,19 @@ public class ParkingLot {
             throw new AlreadyParkedException();
         parkedCars.add(car);
         if (checkIfParkingLotIsFull())
-            workerList.forEach(Worker::notifyIsFull);
+            setIsFull(true);
+
+    }
+
+    private void setIsFull(boolean isFull) {
+        this.isFull = isFull;
+        workerList.forEach(worker -> worker.notify(isFull));
     }
 
     public Car unPark(Car car) throws NotParkedException {
         if (parkedCars.contains(car)) {
             if (checkIfParkingLotIsFull())
-                workerList.forEach(Worker::notifyIsNotFull);
+                setIsFull(false);
             parkedCars.remove(car);
             return car;
         } else

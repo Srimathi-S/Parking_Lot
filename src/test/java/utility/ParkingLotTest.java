@@ -68,36 +68,36 @@ public class ParkingLotTest {
     void testIfOwnerIsNotifiedWhenParkingLotIsFull() throws NoCapacityException, AlreadyParkedException {
         parkingLot.park(car2);
 
-        verify(owner).notifyIsFull();
+        verify(owner).notify(true);
     }
 
     @Test
     @Order(4)
     void testIfCopIsNotifiedWhenParkingLotIsFull() {
-        verify(cop).notifyIsFull();
+        verify(cop).notify(true);
     }
 
     @Test
     @Order(10)
     void testIfOwnerIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull() {
-        verify(owner).notifyIsNotFull();
+        verify(owner).notify(false);
     }
 
     @Test
     @Order(7)
     void testIfOwnerIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot() {
-        verify(owner, times(0)).notifyIsNotFull();
+        verify(owner, times(0)).notify(false);
     }
 
     @Test
     @Order(10)
     void testIfCopIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull() {
-        verify(cop).notifyIsNotFull();
+        verify(cop).notify(false);
     }
 
     @Test
     @Order(7)
     void testIfCopIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot() {
-        verify(cop, times(0)).notifyIsNotFull();
+        verify(cop, times(0)).notify(false);
     }
 }

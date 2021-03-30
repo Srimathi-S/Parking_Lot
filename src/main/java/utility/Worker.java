@@ -1,7 +1,5 @@
 package utility;
 
 public interface Worker {
-    void notifyIsFull();
-
-    void notifyIsNotFull();
+    void notify(boolean isFull);
 }
