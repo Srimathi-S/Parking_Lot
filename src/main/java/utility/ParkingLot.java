@@ -37,9 +37,14 @@ public class ParkingLot {
     }
 
     public Car unPark(Car car) throws NotParkedException {
-        if (parkedCars.remove(car))
+        if (parkedCars.contains(car)) {
+            if (checkIfParkingLotIsFull()) {
+                owner.notifyIsNotFull();
+                cop.notifyIsNotFull();
+            }
+            parkedCars.remove(car);
             return car;
-        else
+        } else
             throw new NotParkedException();
     }
 }
