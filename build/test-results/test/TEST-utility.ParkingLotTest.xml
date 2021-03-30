@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="utility.ParkingLotTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-03-30T07:14:58" hostname="DEEKSHAREDDY" time="0.176">
+<testsuite name="utility.ParkingLotTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-03-30T09:41:27" hostname="LAPTOP-538TC8K1" time="0.248">
   <properties/>
-  <testcase name="testIfDriverCanParkACar()" classname="utility.ParkingLotTest" time="0.028"/>
-  <testcase name="testThrowsExceptionIfCarIsAlreadyParked()" classname="utility.ParkingLotTest" time="0.003"/>
-  <testcase name="testIfOwnerIsNotifiedWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.072"/>
-  <testcase name="testIfCopIsNotifiedWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.008"/>
-  <testcase name="testThrowsExceptionIfDriverParksWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.003"/>
+  <testcase name="testIfDriverCanParkACar()" classname="utility.ParkingLotTest" time="0.031"/>
+  <testcase name="testThrowsExceptionIfCarIsAlreadyParked()" classname="utility.ParkingLotTest" time="0.006"/>
+  <testcase name="testIfOwnerIsNotifiedWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.098"/>
+  <testcase name="testIfCopIsNotifiedWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.004"/>
+  <testcase name="testThrowsExceptionIfDriverParksWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.01"/>
   <testcase name="testThrowsExceptionIfDriverWantsToUnParkANotParkedCar()" classname="utility.ParkingLotTest" time="0.003"/>
-  <testcase name="testIfCopIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot()" classname="utility.ParkingLotTest" time="0.001"/>
-  <testcase name="testIfOwnerIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot()" classname="utility.ParkingLotTest" time="0.004"/>
-  <testcase name="testIfDriverCanUnParkACar()" classname="utility.ParkingLotTest" time="0.006"/>
-  <testcase name="testIfDriverCanParkACarAfterUnParking()" classname="utility.ParkingLotTest" time="0.004"/>
-  <testcase name="testIfOwnerIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull()" classname="utility.ParkingLotTest" time="0.001"/>
-  <testcase name="testIfCopIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull()" classname="utility.ParkingLotTest" time="0.002"/>
+  <testcase name="testIfCopIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot()" classname="utility.ParkingLotTest" time="0.003"/>
+  <testcase name="testIfOwnerIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot()" classname="utility.ParkingLotTest" time="0.003"/>
+  <testcase name="testIfDriverCanUnParkACar()" classname="utility.ParkingLotTest" time="0.026"/>
+  <testcase name="testIfDriverCanParkACarAfterUnParking()" classname="utility.ParkingLotTest" time="0.012"/>
+  <testcase name="testIfOwnerIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull()" classname="utility.ParkingLotTest" time="0.003"/>
+  <testcase name="testIfCopIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull()" classname="utility.ParkingLotTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,7 +1,4 @@
 package utility;
 
-public interface TrafficCop {
-    void notifyIsFull();
-
-    void notifyIsNotFull();
+public interface TrafficCop extends Worker{
 }

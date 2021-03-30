@@ -17,8 +17,8 @@ public class ParkingLotTest {
         owner = mock(Owner.class);
         cop = mock(TrafficCop.class);
         parkingLot = new ParkingLot(2);
-        parkingLot.setOwner(owner);
-        parkingLot.setCop(cop);
+        parkingLot.addWorker(owner);
+        parkingLot.addWorker(cop);
         car1 = mock(Car.class);
         car2 = mock(Car.class);
         car3 = mock(Car.class);
