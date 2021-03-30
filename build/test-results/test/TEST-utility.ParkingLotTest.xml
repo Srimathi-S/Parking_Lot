@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="utility.ParkingLotTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-03-29T13:56:11" hostname="DEEKSHAREDDY" time="0.41">
+<testsuite name="utility.ParkingLotTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-03-30T06:03:19" hostname="DEEKSHAREDDY" time="0.273">
   <properties/>
-  <testcase name="testIfDriverCanParkACar()" classname="utility.ParkingLotTest" time="0.049"/>
-  <testcase name="testThrowsExceptionIfCarIsAlreadyParked()" classname="utility.ParkingLotTest" time="0.009"/>
-  <testcase name="testIfOwnerIsNotifiedWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.156"/>
-  <testcase name="testThrowsExceptionIfParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.014"/>
-  <testcase name="testIfDriverCanUnParkACar()" classname="utility.ParkingLotTest" time="0.037"/>
-  <testcase name="testThrowsExceptionIfDriverWantsToUnParkANotParkedCar()" classname="utility.ParkingLotTest" time="0.005"/>
-  <testcase name="testIfDriverCanParkACarAfterUnParking()" classname="utility.ParkingLotTest" time="0.004"/>
+  <testcase name="testIfDriverCanParkACar()" classname="utility.ParkingLotTest" time="0.034"/>
+  <testcase name="testThrowsExceptionIfCarIsAlreadyParked()" classname="utility.ParkingLotTest" time="0.005"/>
+  <testcase name="testIfOwnerIsNotifiedWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.113"/>
+  <testcase name="testIfCopIsNotifiedWhenParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.009"/>
+  <testcase name="testThrowsExceptionIfParkingLotIsFull()" classname="utility.ParkingLotTest" time="0.01"/>
+  <testcase name="testIfDriverCanUnParkACar()" classname="utility.ParkingLotTest" time="0.006"/>
+  <testcase name="testThrowsExceptionIfDriverWantsToUnParkANotParkedCar()" classname="utility.ParkingLotTest" time="0.007"/>
+  <testcase name="testIfDriverCanParkACarAfterUnParking()" classname="utility.ParkingLotTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

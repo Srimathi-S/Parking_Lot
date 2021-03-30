@@ -11,12 +11,15 @@ public class ParkingLotTest {
     static ParkingLot parkingLot;
     static Car car1, car2, car3;
     static Owner owner;
+    static TrafficCop cop;
 
     @BeforeAll
     static void initializations() {
         owner = mock(Owner.class);
+        cop = mock(TrafficCop.class);
         parkingLot = new ParkingLot(2);
         parkingLot.setOwner(owner);
+        parkingLot.setCop(cop);
         car1 = mock(Car.class);
         car2 = mock(Car.class);
         car3 = mock(Car.class);
@@ -35,13 +38,13 @@ public class ParkingLotTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     void testThrowsExceptionIfParkingLotIsFull() {
         assertThrows(NoCapacityException.class, () -> parkingLot.park(car3));
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     void testIfDriverCanUnParkACar() throws NotParkedException {
         Car actualCar = parkingLot.unPark(car1);
         Car expectedCar = car1;
@@ -50,13 +53,13 @@ public class ParkingLotTest {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     void testThrowsExceptionIfDriverWantsToUnParkANotParkedCar() {
         assertThrows(NotParkedException.class, () -> parkingLot.unPark(car3));
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     void testIfDriverCanParkACarAfterUnParking() {
         assertDoesNotThrow(() -> parkingLot.park(car1));
     }
@@ -67,5 +70,11 @@ public class ParkingLotTest {
         parkingLot.park(car2);
 
         verify(owner).notifyIsFull();
+    }
+
+    @Test
+    @Order(4)
+    void testIfCopIsNotifiedWhenParkingLotIsFull() {
+        verify(cop).notifyIsFull();
     }
 }

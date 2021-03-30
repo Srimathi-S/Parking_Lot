@@ -6,6 +6,7 @@ public class ParkingLot {
     private final int capacity;
     HashSet<Car> parkedCars = new HashSet<>();
     Owner owner;
+    TrafficCop cop;
 
     public ParkingLot(int capacity) {
         this.capacity = capacity;
@@ -15,7 +16,11 @@ public class ParkingLot {
         this.owner = owner;
     }
 
-    private boolean checkIfParkingLotIsFull(){
+    public void setCop(TrafficCop cop) {
+        this.cop = cop;
+    }
+
+    private boolean checkIfParkingLotIsFull() {
         return capacity - parkedCars.size() == 0;
     }
 
@@ -25,8 +30,10 @@ public class ParkingLot {
         if (parkedCars.contains(car))
             throw new AlreadyParkedException();
         parkedCars.add(car);
-        if (checkIfParkingLotIsFull())
+        if (checkIfParkingLotIsFull()) {
             owner.notifyIsFull();
+            cop.notifyIsFull();
+        }
     }
 
     public Car unPark(Car car) throws NotParkedException {

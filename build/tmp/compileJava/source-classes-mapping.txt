@@ -8,5 +8,7 @@ utility/AlreadyParkedException.java
  utility.AlreadyParkedException
 utility/Car.java
  utility.Car
+utility/TrafficCop.java
+ utility.TrafficCop
 utility/ParkingLot.java
  utility.ParkingLot
