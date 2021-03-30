@@ -6,11 +6,14 @@ import java.util.List;
 
 public class ParkingLot {
     private final int capacity;
+    private boolean isFull;
     HashSet<Car> parkedCars = new HashSet<>();
     List<Worker> workerList = new ArrayList<>();
+    ParkingAttendant parkingAttendant;
 
-    public ParkingLot(int capacity) {
+    public ParkingLot(int capacity, ParkingAttendant parkingAttendant) {
         this.capacity = capacity;
+        this.parkingAttendant = parkingAttendant;
     }
 
     public void addWorker(Worker worker) {
@@ -26,15 +29,21 @@ public class ParkingLot {
             throw new NoCapacityException();
         if (parkedCars.contains(car))
             throw new AlreadyParkedException();
-        parkedCars.add(car);
+        parkingAttendant.park(this, car);
         if (checkIfParkingLotIsFull())
-            workerList.forEach(Worker::notifyIsFull);
+            setIsFull(true);
+
+    }
+
+    private void setIsFull(boolean isFull) {
+        this.isFull = isFull;
+        workerList.forEach(worker -> worker.notify(isFull));
     }
 
     public Car unPark(Car car) throws NotParkedException {
         if (parkedCars.contains(car)) {
             if (checkIfParkingLotIsFull())
-                workerList.forEach(Worker::notifyIsNotFull);
+                setIsFull(false);
             parkedCars.remove(car);
             return car;
         } else

@@ -1,4 +1,4 @@
 package utility;
 
-public interface TrafficCop extends Worker{
+public interface TrafficCop extends Worker {
 }

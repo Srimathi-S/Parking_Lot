@@ -11,12 +11,13 @@ public class ParkingLotTest {
     static Car car1, car2, car3;
     static Owner owner;
     static TrafficCop cop;
+    static ParkingAttendant parkingAttendant = new ParkingAttendant();
 
     @BeforeAll
     static void initializations() {
         owner = mock(Owner.class);
         cop = mock(TrafficCop.class);
-        parkingLot = new ParkingLot(2);
+        parkingLot = new ParkingLot(2, parkingAttendant);
         parkingLot.addWorker(owner);
         parkingLot.addWorker(cop);
         car1 = mock(Car.class);
@@ -68,36 +69,36 @@ public class ParkingLotTest {
     void testIfOwnerIsNotifiedWhenParkingLotIsFull() throws NoCapacityException, AlreadyParkedException {
         parkingLot.park(car2);
 
-        verify(owner).notifyIsFull();
+        verify(owner).notify(true);
     }
 
     @Test
     @Order(4)
     void testIfCopIsNotifiedWhenParkingLotIsFull() {
-        verify(cop).notifyIsFull();
+        verify(cop).notify(true);
     }
 
     @Test
     @Order(10)
     void testIfOwnerIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull() {
-        verify(owner).notifyIsNotFull();
+        verify(owner).notify(false);
     }
 
     @Test
     @Order(7)
     void testIfOwnerIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot() {
-        verify(owner, times(0)).notifyIsNotFull();
+        verify(owner, times(0)).notify(false);
     }
 
     @Test
     @Order(10)
     void testIfCopIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull() {
-        verify(cop).notifyIsNotFull();
+        verify(cop).notify(false);
     }
 
     @Test
     @Order(7)
     void testIfCopIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot() {
-        verify(cop, times(0)).notifyIsNotFull();
+        verify(cop, times(0)).notify(false);
     }
 }

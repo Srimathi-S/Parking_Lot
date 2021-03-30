@@ -1,5 +1,5 @@
 package utility;
 
-public interface Owner extends Worker{
+public interface Owner extends Worker {
 
 }
