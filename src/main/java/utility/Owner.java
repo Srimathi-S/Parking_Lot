@@ -1,7 +1,5 @@
 package utility;
 
-public interface Owner {
-    void notifyIsFull();
+public interface Owner extends Worker{
 
-    void notifyIsNotFull();
 }
