@@ -1,13 +1,9 @@
 package utility;
 
+import java.util.HashSet;
+
 public class ParkingAttendant {
-    private ParkingLot parkingLot;
-
-    public ParkingAttendant(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
-    }
-
-    public void park(Car car) throws NoCapacityException, AlreadyParkedException {
-        parkingLot.park(car);
+    public void park(HashSet<Car> parkedCars, Car car) {
+        parkedCars.add(car);
     }
 }

@@ -1,17 +1,17 @@
 utility/NoCapacityException.java
  utility.NoCapacityException
-utility/NotParkedException.java
- utility.NotParkedException
 utility/Car.java
  utility.Car
+utility/NotParkedException.java
+ utility.NotParkedException
 utility/AlreadyParkedException.java
  utility.AlreadyParkedException
 utility/Worker.java
  utility.Worker
-utility/Owner.java
- utility.Owner
 utility/TrafficCop.java
  utility.TrafficCop
+utility/Owner.java
+ utility.Owner
 utility/ParkingLot.java
  utility.ParkingLot
 utility/ParkingAttendant.java
