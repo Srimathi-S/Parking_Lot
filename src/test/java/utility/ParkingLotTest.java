@@ -13,6 +13,7 @@ public class ParkingLotTest {
     static Owner owner;
     static TrafficCop cop;
 
+
     @BeforeAll
     static void initializations() {
         owner = mock(Owner.class);
