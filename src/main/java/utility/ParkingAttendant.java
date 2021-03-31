@@ -1,7 +1,13 @@
 package utility;
 
 public class ParkingAttendant {
-    public void park(ParkingLot parkingLot, Car car) {
-        parkingLot.parkedCars.add(car);
+    private ParkingLot parkingLot;
+
+    public ParkingAttendant(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
+    }
+
+    public void park(Car car) throws NoCapacityException, AlreadyParkedException {
+        parkingLot.park(car);
     }
 }

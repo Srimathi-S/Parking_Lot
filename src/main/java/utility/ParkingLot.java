@@ -9,11 +9,9 @@ public class ParkingLot {
     private boolean isFull;
     HashSet<Car> parkedCars = new HashSet<>();
     List<Worker> workerList = new ArrayList<>();
-    ParkingAttendant parkingAttendant;
 
-    public ParkingLot(int capacity, ParkingAttendant parkingAttendant) {
+    public ParkingLot(int capacity) {
         this.capacity = capacity;
-        this.parkingAttendant = parkingAttendant;
     }
 
     public void addWorker(Worker worker) {
@@ -29,7 +27,7 @@ public class ParkingLot {
             throw new NoCapacityException();
         if (parkedCars.contains(car))
             throw new AlreadyParkedException();
-        parkingAttendant.park(this, car);
+        parkedCars.add(car);
         if (checkIfParkingLotIsFull())
             setIsFull(true);
 

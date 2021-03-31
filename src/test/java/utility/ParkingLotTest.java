@@ -1,6 +1,7 @@
 package utility;
 
 import org.junit.jupiter.api.*;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -11,13 +12,13 @@ public class ParkingLotTest {
     static Car car1, car2, car3;
     static Owner owner;
     static TrafficCop cop;
-    static ParkingAttendant parkingAttendant = new ParkingAttendant();
+
 
     @BeforeAll
     static void initializations() {
         owner = mock(Owner.class);
         cop = mock(TrafficCop.class);
-        parkingLot = new ParkingLot(2, parkingAttendant);
+        parkingLot = new ParkingLot(2);
         parkingLot.addWorker(owner);
         parkingLot.addWorker(cop);
         car1 = mock(Car.class);
@@ -101,4 +102,6 @@ public class ParkingLotTest {
     void testIfCopIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot() {
         verify(cop, times(0)).notify(false);
     }
+
+
 }

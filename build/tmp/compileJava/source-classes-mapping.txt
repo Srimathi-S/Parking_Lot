@@ -8,11 +8,11 @@ utility/AlreadyParkedException.java
  utility.AlreadyParkedException
 utility/Worker.java
  utility.Worker
-utility/ParkingLot.java
- utility.ParkingLot
-utility/TrafficCop.java
- utility.TrafficCop
 utility/Owner.java
  utility.Owner
+utility/TrafficCop.java
+ utility.TrafficCop
+utility/ParkingLot.java
+ utility.ParkingLot
 utility/ParkingAttendant.java
  utility.ParkingAttendant
