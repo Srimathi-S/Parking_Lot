@@ -12,13 +12,15 @@ public class ParkingLotTest {
     static Car car1, car2, car3;
     static Owner owner;
     static TrafficCop cop;
-
+    static ParkingAttendant parkingAttendant;
 
     @BeforeAll
     static void initializations() {
         owner = mock(Owner.class);
         cop = mock(TrafficCop.class);
         parkingLot = new ParkingLot(2);
+        parkingAttendant = new ParkingAttendant();
+        parkingLot.setParkingAttendant(parkingAttendant);
         parkingLot.addWorker(owner);
         parkingLot.addWorker(cop);
         car1 = mock(Car.class);
