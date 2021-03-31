@@ -46,8 +46,7 @@ public class ParkingLot {
         if (parkedCars.contains(car)) {
             if (checkIfParkingLotIsFull())
                 setIsFull(false);
-            parkedCars.remove(car);
-            return car;
+            return parkingAttendant.unPark(parkedCars, car);
         } else
             throw new NotParkedException();
     }
