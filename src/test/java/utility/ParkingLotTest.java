@@ -10,22 +10,27 @@ import static org.mockito.Mockito.*;
 public class ParkingLotTest {
     static ParkingLot parkingLot;
     static Car car1, car2, car3;
-    static Owner owner;
-    static TrafficCop cop;
+    static Worker owner, cop;
     static ParkingAttendant parkingAttendant;
+    static CareTaker careTaker;
 
     @BeforeAll
     static void initializations() {
-        owner = mock(Owner.class);
-        cop = mock(TrafficCop.class);
-        parkingLot = new ParkingLot(2);
-        parkingAttendant = new ParkingAttendant();
-        parkingLot.setParkingAttendant(parkingAttendant);
-        parkingLot.addWorker(owner);
-        parkingLot.addWorker(cop);
+        owner = mock(Worker.class);
+        cop = mock(Worker.class);
         car1 = mock(Car.class);
         car2 = mock(Car.class);
         car3 = mock(Car.class);
+
+        parkingLot = new ParkingLot(2);
+        parkingAttendant = new ParkingAttendant();
+        careTaker = new CareTaker();
+
+        parkingLot.setParkingAttendant(parkingAttendant);
+        parkingLot.setCareTaker(careTaker);
+
+        careTaker.addWorker(owner);
+        careTaker.addWorker(cop);
     }
 
     @Test
@@ -72,38 +77,36 @@ public class ParkingLotTest {
     void testIfOwnerIsNotifiedWhenParkingLotIsFull() throws NoCapacityException, AlreadyParkedException {
         parkingLot.park(car2);
 
-        verify(owner).notify(true);
+        verify(owner).notifyIsFull();
     }
 
     @Test
     @Order(4)
     void testIfCopIsNotifiedWhenParkingLotIsFull() {
-        verify(cop).notify(true);
+        verify(cop).notifyIsFull();
     }
 
     @Test
     @Order(10)
     void testIfOwnerIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull() {
-        verify(owner).notify(false);
+        verify(owner).notifyIsNotFull();
     }
 
     @Test
     @Order(7)
     void testIfOwnerIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot() {
-        verify(owner, times(0)).notify(false);
+        verify(owner, times(0)).notifyIsNotFull();
     }
 
     @Test
     @Order(10)
     void testIfCopIsNotifiedWhenCarIsUnParkedAfterParkingLotBeingFull() {
-        verify(cop).notify(false);
+        verify(cop).notifyIsNotFull();
     }
 
     @Test
     @Order(7)
     void testIfCopIsNotNotifiedWhenCarThatIsUnParkedIsNotPresentInParkingLot() {
-        verify(cop, times(0)).notify(false);
+        verify(cop, times(0)).notifyIsNotFull();
     }
-
-
 }

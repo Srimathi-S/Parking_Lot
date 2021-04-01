@@ -1,15 +1,12 @@
 package utility;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 public class ParkingLot {
     private final int capacity;
-    private boolean isFull;
     private ParkingAttendant parkingAttendant;
     HashSet<Car> parkedCars = new HashSet<>();
-    List<Worker> workerList = new ArrayList<>();
+    CareTaker careTaker;
 
     public ParkingLot(int capacity) {
         this.capacity = capacity;
@@ -19,33 +16,28 @@ public class ParkingLot {
         this.parkingAttendant = parkingAttendant;
     }
 
-    private void setIsFull(boolean isFull) {
-        this.isFull = isFull;
-        workerList.forEach(worker -> worker.notify(isFull));
+    public void setCareTaker(CareTaker careTaker) {
+        this.careTaker = careTaker;
     }
 
-    public void addWorker(Worker worker) {
-        workerList.add(worker);
-    }
-
-    private boolean checkIfParkingLotIsFull() {
+    private boolean isFull() {
         return capacity - parkedCars.size() == 0;
     }
 
     public void park(Car car) throws NoCapacityException, AlreadyParkedException {
-        if (checkIfParkingLotIsFull())
+        if (isFull())
             throw new NoCapacityException();
         if (parkedCars.contains(car))
             throw new AlreadyParkedException();
         parkingAttendant.park(parkedCars, car);
-        if (checkIfParkingLotIsFull())
-            setIsFull(true);
+        if (isFull())
+            careTaker.notifyIsFull();
     }
 
     public Car unPark(Car car) throws NotParkedException {
         if (parkedCars.contains(car)) {
-            if (checkIfParkingLotIsFull())
-                setIsFull(false);
+            if (isFull())
+                careTaker.notifyIsNotFull();
             return parkingAttendant.unPark(parkedCars, car);
         } else
             throw new NotParkedException();

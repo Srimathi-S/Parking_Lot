@@ -6,13 +6,11 @@ utility/NotParkedException.java
  utility.NotParkedException
 utility/AlreadyParkedException.java
  utility.AlreadyParkedException
-utility/Worker.java
- utility.Worker
-utility/TrafficCop.java
- utility.TrafficCop
-utility/Owner.java
- utility.Owner
-utility/ParkingLot.java
- utility.ParkingLot
 utility/ParkingAttendant.java
  utility.ParkingAttendant
+utility/ParkingLot.java
+ utility.ParkingLot
+utility/CareTaker.java
+ utility.CareTaker
+utility/Worker.java
+ utility.Worker
